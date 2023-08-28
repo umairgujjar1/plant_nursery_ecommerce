@@ -21,8 +21,8 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Password</th>
-                    <th scope="col">Date</th>              
+                    <th scope="col">User Role</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -34,7 +34,7 @@
                           <td>{{$value->id}}</td>
                           <td>{{$value->name}}</td>
                           <td>{{$value->email}}</td>
-                          <td>{{$value->password}}</td>
+                          <td>{{$value->role}}</td>
                           <td>{{ $value->created_at->format('Y-m-d H:i:s') }}</td>
                           <td>
                             <form action="{{ url('/admin/user', ['id' => $value->id]) }}" method="POST">
@@ -42,14 +42,15 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
+
                         </td>
-                         
+
                       </tr>
                      @endforeach
                   @endif
-                
 
-               
+
+
                 </tbody>
 
                 @if (session('success'))
@@ -57,7 +58,7 @@
                     {{ session('success') }}
                 </div>
                 @endif
-                
+
                 @if (session('error'))
                 <div class="alert alert-danger">
                     {{ session('error') }}

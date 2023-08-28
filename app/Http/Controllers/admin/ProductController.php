@@ -26,20 +26,20 @@ class ProductController extends Controller
             'quantity' => 'required|integer|min:0',
             'tags' => 'nullable|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            
+
         ]);
         // Handle the image upload
         $imagePath = $request->file('image')->store('product_images', 'public');
 
         // Create and save the product
         $product = new Product($validatedData);
-    
+
         $product->image = $imagePath;
         $product->save();
 
         return back()->with('success', 'Product added successfully!');
     }
-  
+
 //  Here we show our product on admin panal/////////////
 
     public function view_product()
@@ -78,11 +78,17 @@ class ProductController extends Controller
             'categories' => 'required|unique:categories,categories',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $imagePath = $request->file('image')->store('category_images', 'public');
+
+        $imageName = time().'.'.$request->image->extension();
+                $request->image->move(public_path('storage/category_images'),$imageName);
+
+
+
+        // $imagePath = $request->file('image')->store('category_images', 'public');
         Category::create([
             'categories' => $validatedData['categories'],
-            'image' => $imagePath,
-            
+            'image' => $imageName,
+
         ]);
         return back()->with('success', 'Category created successfully!');
     }

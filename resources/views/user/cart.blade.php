@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
         <section class="h-100 container-fluid" style="background-color: #eee; width:100% !important">
             <div class="h-100 py-3">
               <div class="row d-flex justify-content-center align-items-center h-100">
@@ -88,19 +86,5 @@
               </div>
             </div>
           </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @endsection

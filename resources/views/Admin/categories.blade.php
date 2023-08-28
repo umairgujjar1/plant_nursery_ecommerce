@@ -21,7 +21,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Images</th>
-                  
+
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -32,7 +32,7 @@
                           <td>{{$value->id}}</td>
                           <td>{{$value->categories}}</td>
                           <td>
-                            <img src="{{asset('storage/'.$value->image) }}" alt="Product Image" width="80">
+                            <img src="{{asset('storage/category_images/'.$value->image) }}" alt="Product Image" width="80">
                         </td>
 <td>
   <form action="{{ route('admin.category.delete', ['id' => $value->id]) }}" method="POST">
@@ -48,11 +48,11 @@
                       <td colspan="4">No categories found</td>
                   </tr>
               @endif
-                        
-                        
+
+
                       </tbody>
                     </table>
-                    
+
               <!-- End Table with stripped rows -->
 
             </div>
@@ -67,7 +67,7 @@
           {{ session('success') }}
       </div>
       @endif
-      
+
       @if (session('error'))
       <div class="alert alert-danger">
           {{ session('error') }}

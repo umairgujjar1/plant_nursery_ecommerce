@@ -33,13 +33,13 @@
 
     <section class="category" id="category">
 
-        <h1 class="heading"> shop by category </h1>
+        <h1 class="heading"> shop by Category </h1>
 
         <div class="box-container">
             @if (!empty($categories))
                 @foreach ($categories as $value)
-                    <div class="box">
-                        <img src="{{ asset('storage/' . $value->image) }} " alt="">
+                    <div class="box col-md-3">
+                        <img src="{{ asset('storage/category_images/'.$value->image) }} " alt="">
                         <div class="content">
                             <h3>{{ $value->categories }}</h3>
                             <form action="{{ URL::to('/product') }}" method="GET">
@@ -50,29 +50,12 @@
                     </div>
                 @endforeach
             @endif
-            {{-- <div class="box">
-        <img src="images/cat2.jpg" alt="">
-        <div class="content">
-            <h3>plants for house</h3>
-            <a href="#" class="btn">shop now</a>
-        </div>
-    </div>
-    <div class="box">
-        <img src="images/cat3.jpg" alt="">
-        <div class="content">
-            <h3>plants for office</h3>
-            <a href="#" class="btn">shop now</a>
-        </div>
-    </div>
-    <div class="box">
-        <img src="images/cat4.jpg" alt="">
-        <div class="content">
-            <h3>gift plants</h3>
-            <a href="#" class="btn">shop now</a>
-        </div>
-    </div> --}}
+
 
         </div>
+
+
+
 
     </section>
 
@@ -120,125 +103,7 @@
                 @endforeach
             @endif
 
-            {{-- <div class="box">
-            <span class="discount">-25%</span>
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-eye"></a>
-            </div>
-            <img src="images/product2.jpg" alt="">
-            <h3>latest plants</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="quantity">
-                <span> quantity : </span>
-                <input type="number" min="1" max="100" value="1">
-            </div>
-            <div class="price">$14.70 <span>$18.20</span></div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
 
-        <div class="box">
-            <span class="discount">-7%</span>
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-eye"></a>
-            </div>
-            <img src="images/product3.jpg" alt="">
-            <h3>latest plants</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="quantity">
-                <span> quantity : </span>
-                <input type="number" min="1" max="100" value="1">
-            </div>
-            <div class="price">$14.70 <span>$18.20</span></div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-4%</span>
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-eye"></a>
-            </div>
-            <img src="images/product4.jpg" alt="">
-            <h3>latest plants</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="quantity">
-                <span> quantity : </span>
-                <input type="number" min="1" max="100" value="1">
-            </div>
-            <div class="price">$14.70 <span>$18.20</span></div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-13%</span>
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-eye"></a>
-            </div>
-            <img src="images/product5.jpg" alt="">
-            <h3>latest plants</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="quantity">
-                <span> quantity : </span>
-                <input type="number" min="1" max="100" value="1">
-            </div>
-            <div class="price">$14.70 <span>$18.20</span></div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-20%</span>
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-eye"></a>
-            </div>
-            <img src="images/product6.jpg" alt="">
-            <h3>latest plants</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <div class="quantity">
-                <span> quantity : </span>
-                <input type="number" min="1" max="100" value="1">
-            </div>
-            <div class="price">$14.70 <span>$18.20</span></div>
-            <a href="#" class="btn">add to cart</a>
-        </div> --}}
 
         </div>
         <div class="d-flex justify-content-center">

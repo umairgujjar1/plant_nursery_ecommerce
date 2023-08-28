@@ -43,13 +43,13 @@
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
-                  
+
                       </tr>
 
                      @endforeach
                   @endif
-                
-               
+
+
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
@@ -66,7 +66,7 @@
           {{ session('success') }}
       </div>
       @endif
-      
+
       @if (session('error'))
       <div class="alert alert-danger">
           {{ session('error') }}
