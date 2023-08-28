@@ -12,8 +12,8 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body> 
-    
+<body>
+
 <!-- header section starts  -->
 
 <header>
@@ -60,7 +60,7 @@
 
         <div class="icons">
             <a href="#" class="fas fa-shopping-cart"></a>
-            <a href="#" class="fas fa-heart"></a>
+            {{-- <a href="#" class="fas fa-heart"></a> --}}
             <a href="#" class="fas fa-user-circle"></a>
         </div>
 
@@ -496,7 +496,7 @@
     </div>
 
     <h1 class="credit"> created by <span> mr. Irfan & Team</span> | all rights reserved! </h1>
-    
+
 </section>
 
 <!-- footer section ends -->

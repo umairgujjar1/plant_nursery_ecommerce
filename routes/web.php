@@ -2,9 +2,11 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\user\HomeController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\user\CartController;
+use App\Models\Category;
 // use App\Http\Controllers\user\CartController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -20,14 +22,25 @@ use Illuminate\Support\Facades\Route;
 ////////////////////////// User ///////////////////////////////////////////////////////
 
 
+
 Route::get('/main', function () {
-    return view('user/main');
+    $category_list = Category::all();
+    return view('user/main',compact('category_list'));
 });
+Route::get('/user_profile', function () {
+    $category_list = Category::all();
+    if(!empty(Auth::user())){
+
+        return view('user.profile',compact('category_list'));
+    }
+    return redirect()->route('login');
+})->name('user_profile');
 
 
 Route::get('/', function () {
     return view('user/home');
 });
+
 Route::get('/', [HomeController::class, 'showHome'])->name('user.home');
 
 // Route::get('/', [HomeController::class, 'showCategories'])->name('user.home.categories');
@@ -39,28 +52,40 @@ Route::get('/products', function () { return view('user/product');});
 
 
 Route::get('/contact', function () {
-    return view('user/contact');
+    $category_list = Category::all();
+    return view('user/contact',compact('category_list'));
 });
 // Route::post('/contact-form','HomeController@store')->name('contact.form');
 Route::post('/contact-form', [HomeController::class,'store'])->name('contact.form');
 
 
 Route::get('/newslatter', function () {
-    return view('user/newslatter');
+    $category_list = Category::all();
+    return view('user/newslatter',compact('category_list'));
 });
 Route::post('/subscribe',[HomeController::class,'subscribe'])->name('subscriber.store');
 
 
 
 Route::get('/about', function () {
-    return view('user/about');
+    $category_list = Category::all();
+    return view('user/about',compact('category_list'));
 });
+
+///////////////////////// cart //////////////////////////
+
+Route::get('/view_cart', [CartController::class,'index'])->name('view_cart');
+Route::get('/add_cart/{id}', [CartController::class,'add_cart'])->name('add_cart');
+Route::get('/delete_cart/{id}', [CartController::class,'delete_cart'])->name('delete_cart');
 
 
 Route::get('/home1', function () {
     return view('admin/home');
 });
 
+///////////////////// favorite /////////////
+
+Route::post('/home1',[HomeController::class,'favorite'])->name('favorite');
 
 
 //////////// Admin route/////////////////
@@ -170,6 +195,10 @@ Route::delete('/admin/user/{id}', [AdminController::class, 'deleteUser'])->name(
 
 
 Auth::routes();
+Route::get('/logoutt', function (){
+    Auth::logout();
+    return redirect()->back();
+})->name('logoutt');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('usuarios', 'UserController@index');

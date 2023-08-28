@@ -20,7 +20,7 @@ h3{
 
 }
 input[type=email] {
-    
+
     padding: 12px 10px;
     margin: 9px 0;
     box-sizing: border-box;
@@ -35,7 +35,7 @@ input[type=email]:hover {
 	border:1px solid #000;
 	transition: 6s;
 }
-::placeholder { 
+::placeholder {
     color: #000;
     opacity: 1;
     font-weight: 400;
@@ -48,7 +48,7 @@ button{
 	height: 50px;
 	padding: 0;
 	margin: 0;
-	border-radius: 50px;	
+	border-radius: 50px;
 }
 .btn{
 	border-radius: 5%;
@@ -116,7 +116,7 @@ footer p{
 <section class="bg-light text-center p-5 mt-4">
 <div class="container p-3">
     <h3>SUBSCRIBE NOW</h3>
-    <form action="{{URL::to('/subscribe')}}" method="Post">
+    <form action="{{URL::to('/subscribe')}}" method="POST">
 		@csrf
         <input type="email" name="email" placeholder="Enter Your Email Id">
         <button type="submit" value="subscribe" name="submit" class="btn btn-primary">Subscribe</button>

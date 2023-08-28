@@ -1,4 +1,4 @@
-{{-- @extends('user.layout') --}}
+@extends('user.layout')
 
 
 @section('user.content')
@@ -6,7 +6,7 @@
 
 
     <section class="category" id="category">
-        <h1 class="heading"> shop by category </h1>
+        <h1 class="heading"> shopp by category </h1>
 
         <div class="box-container">
             @if (!empty($categories))
