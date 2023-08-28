@@ -6,7 +6,7 @@
    @section('content')
    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-  
+
 
 
   <main id="main" class="main">
@@ -19,7 +19,7 @@
 
         @csrf
         <div class="form-group">
-     
+
             <label for="categories">New Category:</label>
             <input type="text" class="form-control" id="categories" name="categories" required>
         </div>
